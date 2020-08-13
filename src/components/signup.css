@@ -1,0 +1,26 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    right: 50%;
+    position: absolute;
+    transform: translate(50%,0);
+    align-items: center;
+    padding-top: 13%;
+}
+
+.register > input {
+    width: 300px;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding-left: 16px;
+    outline: none;
+}
+
+p {
+    font-size: 10px;
+    width: 300px;
+    padding-left: 110px;
+    color: red;
+}
