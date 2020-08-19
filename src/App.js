@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from './components/Home';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Account from './components/Account';
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 
@@ -11,7 +11,19 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Account} />
+          <div className="navbar">
+            <Link className="nav" style={{textDecoration: 'none'}} to="/signup">
+              <span className="links">
+                Register
+              </span>
+            </Link>
+            <Link style={{textDecoration: 'none'}} to="/login">
+              <span className="links">
+                login
+              </span>
+            </Link>
+          </div>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
         </div>

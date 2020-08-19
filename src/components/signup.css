@@ -18,6 +18,22 @@
     outline: none;
 }
 
+.register > input:focus {
+    border: 2px solid lightseagreen;
+}
+.black {
+    border:2px solid black; ;
+}
+.green {
+    border: 2px solid green;
+}
+
+.red {
+    border: 2px solid red;
+}
+.submit {
+    cursor: pointer;
+}
 p {
     font-size: 10px;
     width: 300px;
