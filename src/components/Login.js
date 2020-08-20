@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 import './signup.css';
+import '../App.css';
 import {useForm} from 'react-hook-form';
 import firebase from './firebaseAuth'
-import { withRouter } from 'react-router-dom';
+import { withRouter,Link } from 'react-router-dom';
 
 
 
 function Login(props) {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [name,setName] = useState('')
     const {register,handleSubmit, errors, formState, getValues} = useForm({mode: "onChange"});
 
     const onSubmit = (data) => {
         console.log(data)
     }
         return (<form className="register" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="navbar">
+                        <Link className="nav" style={{textDecoration: 'none'}} to="/signup">
+                        <span className="links">
+                            Register
+                        </span>
+                        </Link>
+                        <Link style={{textDecoration: 'none'}} to="/login">
+                        <span className="links">
+                            login
+                        </span>
+                        </Link>
+                    </div>
                     <input
                         className={errors.email ? " red" : getValues("email") ? " green" : " "}
                         type="text"
