@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Account from './components/Account';
 import Login from './components/Login'
 import SignUp from './components/SignUp';
@@ -16,15 +16,15 @@ function App() {
           })
         })
   return firebaseInitialized !== false ? (
-    <div className="App">
-      <Router>
-        <div>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-        </div>
-        <Route  path="/account" exact component={Account} />
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/account" component={Account} />
+        </Switch>
+      </div>
+    </Router>
   ) : <div className="loader">loader</div>
 }
 

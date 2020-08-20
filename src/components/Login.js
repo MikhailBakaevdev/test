@@ -8,12 +8,10 @@ import { withRouter,Link } from 'react-router-dom';
 
 
 function Login(props) {
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
     const {register,handleSubmit, errors, formState, getValues} = useForm({mode: "onChange"});
 
     const onSubmit = (data) => {
-        console.log(data)
+        onLogin(data.email,data.password)
     }
         return (<form className="register" onSubmit={handleSubmit(onSubmit)}>
                     <div className="navbar">
@@ -33,8 +31,8 @@ function Login(props) {
                         type="text"
                         placeholder="Email"
                         name="email"
-                        value={email} 
-                        onChange={e => setEmail(e.target.value)}
+                        //value={email} 
+                        //onChange={e => setEmail(e.target.value)}
                         ref={register ({ required : true , pattern: { value: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, message : "Email is invalid"}})}/>
                         {errors.email && <p>{errors.email.message}</p>}
                     <input
@@ -42,13 +40,13 @@ function Login(props) {
                         type="password"
                         placeholder="Password"
                         name="password" 
-                        value={password} 
-                        onChange={e => setPassword(e.target.value)}
+                        //value={password} 
+                        //onChange={e => setPassword(e.target.value)}
                         ref={register({ required : true , pattern: { value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/, message: "6 characters, 1 lowercase and 1 uppercase" }})}/>
                         {errors.password && <p>{errors.password.message}</p>}
-                    <input  className="submit" disabled={!formState.isValid} type="submit" onClick={onLogin}/>
+                    <input  className="submit" disabled={!formState.isValid} type="submit"/>
                 </form>)
-        async function onLogin(){
+        async function onLogin(email,password){
             try {
                 await firebase.login(email,password)
                 props.history.replace('/account')

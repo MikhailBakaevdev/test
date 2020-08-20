@@ -12,3 +12,8 @@
     cursor: pointer;
     width: 10%;
 }
+
+.loader {
+    margin-left: 45%;
+    font-size: 60px;
+}
