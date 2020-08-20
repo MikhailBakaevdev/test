@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Account from './components/Account';
 import Login from './components/Login'
 import SignUp from './components/SignUp';
@@ -19,6 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+            <Redirect from='/' to='/signup'/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/account" component={Account} />
